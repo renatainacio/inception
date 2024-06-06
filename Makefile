@@ -1,15 +1,15 @@
 all:
 	sudo grep -q rinacio /etc/hosts || sudo sed -i "3i127.0.0.1\trinacio.42.fr" /etc/hosts
-	docker compose -f ./srcs/docker-compose.yml up -d --build
+	docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 up:
-	docker compose -f ./srcs/docker-compose.yml up -d
+	docker-compose -f ./srcs/docker-compose.yml up -d
 
 down:
-	docker compose -f ./srcs/docker-compose.yml down
+	docker-compose -f ./srcs/docker-compose.yml down
 
 stop:
-	docker compose -f ./srcs/docker-compose.yml stop
+	docker-compose -f ./srcs/docker-compose.yml stop
 
 fclean: down
 	docker stop $$(docker ps -qa); \
