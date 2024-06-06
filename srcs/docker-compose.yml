@@ -1,0 +1,60 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    build:
+      context: requirements/nginx
+      args:
+        - CERTS_PATH=${CERTS_PATH}
+        - CERTS_KEY=${CERTS_KEY}
+    ports:
+      - 443:443
+    restart: always
+    networks:
+      - network
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - wordpress
+
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    build:
+      context: requirements/wordpress
+      args:
+        - MYSQL_DATABASE=${MYSQL_DATABASE}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: always
+    networks:
+      - network
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - mariadb
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    build: 
+      context: requirements/mariadb
+      args:
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_DATABASE=${MYSQL_DATABASE}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: always
+    networks:
+      - network
+    volumes:
+      - mariadb:/var/lib/mysql
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  mariadb:
+  wordpress:
