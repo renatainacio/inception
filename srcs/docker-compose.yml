@@ -57,4 +57,12 @@ networks:
 
 volumes:
   mariadb:
+      driver_opts:
+        o: bind
+        type: none
+        device: /home/rinacio/data/mysql
   wordpress:
+      driver_opts:
+        o: bind
+        type: none
+        device: /home/rinacio/data/mysql
