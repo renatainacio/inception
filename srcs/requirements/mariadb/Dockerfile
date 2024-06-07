@@ -5,7 +5,7 @@ ARG MYSQL_DATABASE
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
 
-RUN apt update && apt install mariadb-server -y
+RUN apt update -y && apt upgrade -y && apt install mariadb-server -y
 
 RUN echo "[mysqld] \n\
 skip-networking=0 \n\

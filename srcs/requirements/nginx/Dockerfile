@@ -7,8 +7,7 @@ RUN apt update && apt upgrade -y && apt install -y nginx && apt install -y opens
 
 RUN openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -sha256 \
     -keyout $CERTS_KEY \
-    -out $CERTS_PATH \
-    -subj "/CN=rinacio.42.fr"
+    -out $CERTS_PATH
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 

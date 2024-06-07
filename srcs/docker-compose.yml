@@ -39,7 +39,7 @@ services:
     container_name: mariadb
     image: mariadb
     build: 
-      context: requirements/mariadb
+      context: requirements/mysql
       args:
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -65,4 +65,4 @@ volumes:
       driver_opts:
         o: bind
         type: none
-        device: /home/rinacio/data/mysql
+        device: /home/rinacio/data/wordpress
