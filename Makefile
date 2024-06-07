@@ -1,5 +1,4 @@
-all: setup
-	up
+all: setup up
 
 setup:
 	sudo mkdir -p /home/rinacio/data/mysql
