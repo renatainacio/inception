@@ -8,11 +8,50 @@ CREATE TABLE `wp_options` (
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
-) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `wp_options`
 LOCK TABLES `wp_options` WRITE;
-INSERT INTO `wp_options` VALUES (1,'siteurl','https://rinacio.42.fr','yes'),(2,'home','https://rinacio.42.fr','yes'),(3,'blogname','inception','yes'),(4,'blogdescription','Just another WordPress site','yes'),(5,'users_can_register','0','yes'),(6,'admin_email','rinacio@42.fr','yes'),(7,'start_of_week','1','yes'),(8,'use_balanceTags','0','yes'),(9,'use_smilies','1','yes'),(10,'require_name_email','1','yes'),(11,'comments_notify','1','yes'),(12,'posts_per_rss','10','yes'),(13,'rss_use_excerpt','0','yes'),(14,'mailserver_url','mail.example.com','yes'),(15,'mailserver_login','login@example.com','yes'),(16,'mailserver_pass','password','yes'),(17,'mailserver_port','110','yes'),(18,'default_category','1','yes'),(19,'default_comment_status','open','yes'),(20,'default_ping_status','open','yes'),(21,'default_pingback_flag','1','yes'),(22,'posts_per_page','10','yes'),(23,'date_format','F j, Y','yes'),(24,'time_format','g:i a','yes'),(25,'links_updated_date_format','F j, Y g:i a','yes'),(26,'comment_moderation','0','yes'),(27,'moderation_notify','1','yes'),(28,'permalink_structure','','yes'),(29,'rewrite_rules','','yes'),(30,'hack_file','0','yes'),(31,'blog_charset','UTF-8','yes'),(32,'moderation_keys','','no'),(33,'active_plugins','a:0:{}','yes'),(34,'category_base','','yes'),(35,'ping_sites','http://rpc.pingomatic.com/','yes'),(36,'comment_max_links','2','yes'),(37,'gmt_offset','0','yes'),(38,'default_email_category','1','yes'),(39,'recently_edited','','no');
+INSERT INTO `wp_options` VALUES 
+(1,'siteurl','https://rinacio.42.fr','yes'),
+(2,'home','https://rinacio.42.fr','yes'),
+(3,'blogname','inception','yes'),
+(4,'blogdescription','Just another WordPress site','yes'),
+(5,'users_can_register','0','yes'),
+(6,'admin_email','rinacio@42.fr','yes'),
+(7,'start_of_week','1','yes'),
+(8,'use_balanceTags','0','yes'),
+(9,'use_smilies','1','yes'),
+(10,'require_name_email','1','yes'),
+(11,'comments_notify','1','yes'),
+(12,'posts_per_rss','10','yes'),
+(13,'rss_use_excerpt','0','yes'),
+(14,'mailserver_url','mail.example.com','yes'),
+(15,'mailserver_login','login@example.com','yes'),
+(16,'mailserver_pass','password','yes'),
+(17,'mailserver_port','110','yes'),
+(18,'default_category','1','yes'),
+(19,'default_comment_status','open','yes'),
+(20,'default_ping_status','open','yes'),
+(21,'default_pingback_flag','1','yes'),
+(22,'posts_per_page','10','yes'),
+(23,'date_format','F j, Y','yes'),
+(24,'time_format','g:i a','yes'),
+(25,'links_updated_date_format','F j, Y g:i a','yes'),
+(26,'comment_moderation','0','yes'),
+(27,'moderation_notify','1','yes'),
+(28,'permalink_structure','','yes'),
+(29,'rewrite_rules','','yes'),
+(30,'hack_file','0','yes'),
+(31,'blog_charset','UTF-8','yes'),
+(32,'moderation_keys','','no'),
+(33,'active_plugins','a:0:{}','yes'),
+(34,'category_base','','yes'),
+(35,'ping_sites','http://rpc.pingomatic.com/','yes'),
+(36,'comment_max_links','2','yes'),
+(37,'gmt_offset','0','yes'),
+(38,'default_email_category','1','yes'),
+(39,'recently_edited','','no');
 UNLOCK TABLES;
 
 -- Table structure for table `wp_postmeta`
@@ -54,12 +93,10 @@ LOCK TABLES `wp_posts` WRITE;
 INSERT INTO `wp_posts` VALUES 
 (1,1,'2024-06-07 08:30:00','2024-06-07 08:30:00','<!-- wp:paragraph -->\n<p>Welcome to our blog! We are excited to share our thoughts and experiences with you. Feel free to explore our content and leave your comments below.</p>\n<!-- /wp:paragraph -->','Hello world!','','publish'),
 (2,1,'2024-06-07 08:30:00','2024-06-07 08:30:00','<!-- wp:paragraph -->\n<p>This is an example page. It is different from a blog post because it is static and doesnt scroll like the rest of the blog content. You can find it in the navigation menu.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Hello! Welcome to our website. I am excited to share my thoughts and experiences with you. I live in a bustling city, have a lovely pet named Luna, and enjoy exploring new places. Feel free to reach out and connect with me!</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>... or you might find something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Welcome! We are thrilled to introduce our company to you. Founded in2023, we have been serving our community with top-notch services.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As you navigate our website, feel free to explore our content and get in touch with us. </p>\n<!-- /wp:paragraph -->','Sample Page','','publish'),
-(3,1,'2024-06-07 08:30:00','2024-06-07 08:30:00','<!-- wp:heading --><h2>About Us</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">Our website address is: https://rinacio.42.fr.</strong></p><!-- /wp:paragraph --><!-- wp:heading --><h2>Comments</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">When visitors leave comments on the site, we collect the data shown in the comments form, along with the visitor IP address and browser user agent string to help spam detection.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available at [Gravatar Privacy Policy URL]. After approval of your comment, your profile picture will be visible to the public in the context of your comment.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Media</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS). Visitors to the website can download and extract any location data from images on the website.</strong></p><!-- /wp:paragraph --><!-- wp:heading --><h2>Cookies</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">If you leave a comment on our site, you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days and screen options cookies last for a year. If you select \"Remember Me,\" your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Embedded Content from Other Websites</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">Articles on this site may include embedded content (e.g., videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>These websites may collect', 'Privacy Policy','','publish');
+(3,1,'2024-06-07 08:30:00','2024-06-07 08:30:00','<!-- wp:heading --><h2>About Us</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">Our website address is: https://rinacio.42.fr.</strong></p><!-- /wp:paragraph --><!-- wp:heading --><h2>Comments</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">When visitors leave comments on the site, we collect the data shown in the comments form, along with the visitor IP address and browser user agent string to help spam detection.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available at [Gravatar Privacy Policy URL]. After approval of your comment, your profile picture will be visible to the public in the context of your comment.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Media</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS). Visitors to the website can download and extract any location data from images on the website.</strong></p><!-- /wp:paragraph --><!-- wp:heading --><h2>Cookies</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">If you leave a comment on our site, you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days and screen options cookies last for a year. If you select \"Remember Me,\" your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Embedded Content from Other Websites</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong class=\"privacy-policy-tutorial\">Articles on this site may include embedded content (e.g., videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>These websites may collect','Privacy Policy','','publish');
 
 UNLOCK TABLES;
 
-
---
 -- Table structure for table `wp_users`
 --
 
