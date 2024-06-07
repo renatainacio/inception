@@ -42,7 +42,7 @@ CREATE TABLE `wp_posts` (
   `post_content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `post_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `post_excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL 
+  `post_status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 );
 
