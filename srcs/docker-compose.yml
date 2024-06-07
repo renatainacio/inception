@@ -1,5 +1,39 @@
 version: '3'
+
 services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    build: 
+      context: requirements/mariadb
+      args:
+        - WORDPRESS_ROOT_PASSWORD=${WORDPRESS_ROOT_PASSWORD}
+        - WORDPRESS_DATABASE=${WORDPRESS_DATABASE}
+        - WORDPRESS_USER=${WORDPRESS_USER}
+        - WORDPRESS_PASSWORD=${WORDPRESS_PASSWORD}
+    restart: always
+    networks:
+      - inception
+    volumes:
+      - mariadb:/var/lib/mysql
+
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    build:
+      context: requirements/wordpress
+      args:
+        - WORDPRESS_DATABASE=${WORDPRESS_DATABASE}
+        - WORDPRESS_USER=${WORDPRESS_USER}
+        - WORDPRESS_PASSWORD=${WORDPRESS_PASSWORD}
+    restart: always
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - mariadb
+
   nginx:
     container_name: nginx
     image: nginx
@@ -8,61 +42,28 @@ services:
       args:
         - CERTS_PATH=${CERTS_PATH}
         - CERTS_KEY=${CERTS_KEY}
+    restart: always
     ports:
       - 443:443
-    restart: always
     networks:
-      - network
+      - inception
     volumes:
       - wordpress:/var/www/html
     depends_on:
       - wordpress
 
-  wordpress:
-    container_name: wordpress
-    image: wordpress
-    build:
-      context: requirements/wordpress
-      args:
-        - MYSQL_DATABASE=${MYSQL_DATABASE}
-        - MYSQL_USER=${MYSQL_USER}
-        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-    restart: always
-    networks:
-      - network
-    volumes:
-      - wordpress:/var/www/html
-    depends_on:
-      - mariadb
-
-  mariadb:
-    container_name: mariadb
-    image: mariadb
-    build: 
-      context: requirements/mariadb
-      args:
-        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-        - MYSQL_DATABASE=${MYSQL_DATABASE}
-        - MYSQL_USER=${MYSQL_USER}
-        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-    restart: always
-    networks:
-      - network
-    volumes:
-      - mariadb:/var/lib/mysql
-
 networks:
-  network:
+  inception:
     driver: bridge
 
 volumes:
   mariadb:
-      driver_opts:
-        o: bind
-        type: none
-        device: /home/rinacio/data/mysql
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/rinacio/data/mysql
   wordpress:
-      driver_opts:
-        o: bind
-        type: none
-        device: /home/rinacio/data/wordpress
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/rinacio/data/wordpress
