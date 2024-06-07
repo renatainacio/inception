@@ -6,6 +6,12 @@ ARG MYSQL_PASSWORD
 
 WORKDIR /var/www/html/
 
+RUN echo $MYSQL_DATABASE
+
+RUN echo $MYSQL_USER
+
+RUN echo $MYSQL_PASSWORD
+
 RUN apt update && apt upgrade && apt install -y php-fpm php-mysql curl sudo mariadb-client 
 
 RUN sed -i.default "/^listen\s=.*/c\listen = 0.0.0.0:9000" \
