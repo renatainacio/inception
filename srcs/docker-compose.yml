@@ -39,7 +39,7 @@ services:
     container_name: mariadb
     image: mariadb
     build: 
-      context: requirements/mysql
+      context: requirements/mariadb
       args:
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         - MYSQL_DATABASE=${MYSQL_DATABASE}
