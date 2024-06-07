@@ -37,7 +37,9 @@ DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT 0,
-  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00');
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`ID`)
+);
 
 
 --
